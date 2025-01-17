@@ -6,10 +6,11 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 // Hero component
 const Hero = ({ heading, description, src }) => {
   return (
-    <div className="flex w-auto relative h-[425px]">
+    <div className="flex w-auto relative h-[425px] m-6">
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${src})`,width:"automatic" }}>
+        className="absolute inset-0 bg-cover bg-center rounded-[30px]"
+        style={{ backgroundImage: `url(${src})`, width: "automatic" }}
+      >
         <div className="relative z-10 w-1/2 top-32 left-12 px-4">
           <h1 className="text-4xl font-bold mb-4 text-white">{heading}</h1>
           <button className="bg-blue-600 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700 transition">
@@ -18,7 +19,7 @@ const Hero = ({ heading, description, src }) => {
           </button>
         </div>
       </div>
-      <div className="absolute inset-0 bg-black opacity-60"></div>
+      <div className="absolute inset-0 bg-black opacity-60 rounded-[30px]"></div>
     </div>
   );
 };
@@ -61,25 +62,21 @@ export default function HeroSection() {
 
   return (
     <>
-      <div >
+      <div>
         <Hero
           heading={slides[currentSlide].heading}
           description={slides[currentSlide].description}
           src={slides[currentSlide].src}
         />
-         <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-black p-2 rounded-full"
-      >
-        &#8249;
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white text-black p-2 rounded-full"
-      >
-        &#8250;
-      </button>
+        <div className=" flex gap-3 absolute top-[65%] left-1/2">
+          <button onClick={prevSlide} className="font-bold text-6xl p-2 text-white">
+            &#8249;
+          </button>
+          <button onClick={nextSlide} className="font-bold text-6xl p-2 text-white">
+            &#8250;
+          </button>
         </div>
+      </div>
     </>
   );
 }

@@ -29,9 +29,9 @@ const Header = () => {
         </div>
 
        
-        {/* Right Section */}
-        <div className="right">
-          <ul className="flex gap-5 p-4 items-center justify-center">
+        {/* center Section */}
+        <div className="right w-[500px]">
+          <ul className="flex gap-20 p-4 items-center justify-center">
             <li>
               <Link href="/">
                 <div className="hover:text-blue-500 transition duration-300">Home</div>
@@ -55,8 +55,8 @@ const Header = () => {
           </ul>
         </div>
 
-         {/* Center Section */}
-         <div className="center flex items-center justify-center w-[500px]">
+         {/* Right Section */}
+         <div className="center flex items-center justify-center w-[400px]">
           <select
             onChange={handleSelectChange}
             className="h-[35px] px-2 rounded focus:outline-none"
