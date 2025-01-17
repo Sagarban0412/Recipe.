@@ -24,7 +24,7 @@ const page = () => {
   return (
     <>
       <h1 className="font-bold text-center text-5xl my-4">{mealwise}</h1>
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-5 justify-center">
         {meal.map((items, index) => {
           return (
             <Link href={`/${items.id}/${items.name}`} key={index}>
