@@ -6,10 +6,10 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 // Hero component
 const Hero = ({ heading, description, src }) => {
   return (
-    <div className="flex w-full relative sm:h-[425px]">
+    <div className="flex w-auto relative h-[425px]">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${src})` }}>
+        style={{ backgroundImage: `url(${src})`,width:"automatic" }}>
         <div className="relative z-10 w-1/2 top-32 left-12 px-4">
           <h1 className="text-4xl font-bold mb-4 text-white">{heading}</h1>
           <button className="bg-blue-600 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700 transition">
@@ -61,7 +61,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <div className="relative">
+      <div >
         <Hero
           heading={slides[currentSlide].heading}
           description={slides[currentSlide].description}

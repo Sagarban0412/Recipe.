@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-0 bg-white dark:bg-gray-900">
-      <div className="flex justify-evenly p-2 flex-wrap">
+      <div className="flex justify-between p-2 px-10 flex-wrap">
         {/* Left Section */}
         <div className="left flex items-center gap-6">
           <FontAwesomeIcon icon={faBars} aria-label="Menu" />
@@ -28,31 +28,7 @@ const Header = () => {
           </h1>
         </div>
 
-        {/* Center Section */}
-        <div className="center flex items-center justify-center w-[600px]">
-          <select
-            onChange={handleSelectChange}
-            className="h-[35px] px-2 rounded focus:outline-none"
-          >
-            <option value="">Select Category</option>
-            <option value="/Meal/dinner">Dinner</option>
-            <option value="/Meal/breakfast">Breakfast</option>
-            <option value="/Meal/lunch">Lunch</option>
-          </select>
-          <input
-            type="text"
-            className="border w-full md:w-[450px] h-[35px] px-3 focus:outline-none"
-            placeholder="Search for recipes"
-          />
-          <div className="bg-green-400 p-[5px] text-center border rounded-r-full">
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              aria-label="Search"
-              className="ml-2 text-gray-500"
-            />
-          </div>
-        </div>
-
+       
         {/* Right Section */}
         <div className="right">
           <ul className="flex gap-5 p-4 items-center justify-center">
@@ -78,6 +54,32 @@ const Header = () => {
             </li>
           </ul>
         </div>
+
+         {/* Center Section */}
+         <div className="center flex items-center justify-center w-[500px]">
+          <select
+            onChange={handleSelectChange}
+            className="h-[35px] px-2 rounded focus:outline-none"
+          >
+            <option value="">Select Category</option>
+            <option value="/Meal/dinner">Dinner</option>
+            <option value="/Meal/breakfast">Breakfast</option>
+            <option value="/Meal/lunch">Lunch</option>
+          </select>
+          <input
+            type="text"
+            className="border w-full md:w-[450px] h-[35px] px-3 focus:outline-none"
+            placeholder="Search for recipes"
+          />
+          <div className="bg-green-400 p-[5px] text-center border rounded-r-full">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              aria-label="Search"
+              className="ml-2 text-gray-500"
+            />
+          </div>
+        </div>
+
       </div>
     </nav>
   );
