@@ -13,7 +13,8 @@ const Hero = ({ heading, description, src }) => {
       >
         <div className="relative z-10 w-1/2 top-32 left-12 px-4">
           <h1 className="text-4xl font-bold mb-4 text-white">{heading}</h1>
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700 transition">
+          {description && <p className="text-lg text-gray-300 mb-4">{description}</p>}
+          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700 transition-transform transform hover:scale-105">
             See More
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
@@ -30,53 +31,57 @@ export default function HeroSection() {
   const slides = [
     {
       heading: "Snacks",
+      description: "Delicious snacks for your cravings!",
       src: "./images/snacks.png",
     },
     {
       heading: "Dinner",
+      description: "Wholesome dinners for every occasion.",
       src: "./images/dinner.png",
     },
     {
       heading: "Lunch",
+      description: "Perfect lunch meals to energize your day.",
       src: "./images/lunch.png",
     },
   ];
 
-  // Change slide automatically every 5 seconds
+  // Change slide automatically every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length); // Loop to next slide
-    }, 3000); // Change slide every 5 seconds
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3000);
 
-    // Cleanup on component unmount to prevent memory leaks
     return () => clearInterval(interval);
   }, []);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length); // Loop to next slide
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length); // Loop to previous slide
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   return (
-    <>
-      <div>
-        <Hero
-          heading={slides[currentSlide].heading}
-          description={slides[currentSlide].description}
-          src={slides[currentSlide].src}
-        />
-        <div className=" flex gap-3 absolute top-[65%] left-1/2">
-          <button onClick={prevSlide} className="font-bold text-6xl p-2 text-white">
-            &#8249;
-          </button>
-          <button onClick={nextSlide} className="font-bold text-6xl p-2 text-white">
-            &#8250;
-          </button>
-        </div>
+    <div>
+      <Hero
+        heading={slides[currentSlide].heading}
+        description={slides[currentSlide].description}
+        src={slides[currentSlide].src}
+      />
+      {/* Slide Indicators */}
+      <div className="flex justify-center gap-2 mt-4 absolute top-[45%] left-1/2 sm:top-[65%]">
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full cursor-pointer ${
+              currentSlide === index ? "bg-blue-600" : "bg-gray-300"
+            }`}
+            onClick={() => setCurrentSlide(index)}
+          ></div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }

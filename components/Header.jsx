@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-0 bg-white dark:bg-gray-900">
+    <nav className="sticky top-0 z-50 backdrop-blur-0 bg-gray-300 dark:bg-gray-900 rounded-lg" >
       <div className="flex justify-between p-2 px-10 flex-wrap">
         {/* Left Section */}
         <div className="left flex items-center gap-6">
@@ -59,7 +59,7 @@ const Header = () => {
          <div className="center flex items-center justify-center w-[400px]">
           <select
             onChange={handleSelectChange}
-            className="h-[35px] px-2 rounded focus:outline-none"
+            className="h-[35px] rounded-l-lg px-2 focus:outline-none"
           >
             <option value="">Select Category</option>
             <option value="/Meal/dinner">Dinner</option>
@@ -68,7 +68,7 @@ const Header = () => {
           </select>
           <input
             type="text"
-            className="border w-full md:w-[450px] h-[35px] px-3 focus:outline-none"
+            className="w-full md:w-[450px] h-[35px] px-3 focus:outline-none border-l"
             placeholder="Search for recipes"
           />
           <div className="bg-green-400 p-[5px] text-center border rounded-r-full">
