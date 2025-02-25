@@ -53,20 +53,22 @@ const Page = () => {
     <>
       <div>
         <div className="flex flex-col justify-center items-center">
-          <div className="flex gap-10">
-            <img
+          <div className="w-[500px]">
+            <Info
+              name={data.caloriesPerServing}
+              cuision={data.cuisine}
+              ctime={data.cookTimeMinutes}
+              ptime={data.prepTimeMinutes}
+              serve={data.servings}
               src={data.image}
-              alt={data.name}
-              className="h-[500px] w-[500px] rounded-2xl"
             />
-            <Info name={data.caloriesPerServing} cuision={data.cuisine} ctime={data.cookTimeMinutes} ptime={data.prepTimeMinutes} serve={data.servings} />
           </div>
           <h1 className="font-bold text-3xl">{data.name}</h1>
         </div>
 
-        <div className="flex w-full justify-center m-auto gap-4 p-5">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 my-5">
           {/* Ingredients Section */}
-          <div className="ingredient border w-[500px] p-4 rounded-3xl">
+          <div className="ingredient border min-w-[420px] p-4 rounded-3xl">
             <h1 className="font-bold text-2xl">Ingredients</h1>
             <ul>
               {data.ingredients &&
@@ -102,13 +104,14 @@ const Page = () => {
           </div>
 
           {/* Instructions Section */}
-          <div className="instruction border h-auto w-[500px] p-4 rounded-3xl">
+          <div className="instruction border min-w-[420px] p-4 rounded-3xl">
             <h1 className="font-bold text-2xl">Instructions</h1>
             <ul>
               {data.instructions &&
                 data.instructions.map((item, index) => (
                   <li key={index} className="mb-4">
-                    {index + 1}. {item}
+                    <span className="font-bold text-xl">{index + 1}.</span>
+                    {item}
                   </li>
                 ))}
             </ul>
