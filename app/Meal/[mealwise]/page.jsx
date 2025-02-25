@@ -23,6 +23,7 @@ const page = () => {
 
   return (
     <>
+      <div className="w-full min-h-[calc(100vh-70px)]">
       <h1 className="font-bold text-center text-5xl my-4">{mealwise}</h1>
       <div className="flex flex-wrap gap-5 justify-center">
         {meal.map((items, index) => {
@@ -34,6 +35,7 @@ const page = () => {
             </Link>
           );
         })}
+      </div>
       </div>
     </>
   );

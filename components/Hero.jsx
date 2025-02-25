@@ -6,9 +6,9 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 // Hero component
 const Hero = ({ heading, description, src }) => {
   return (
-    <div className="flex w-auto relative h-[425px] m-6">
+    <div className="flex w-auto relative h-[425px]">
       <div
-        className="absolute inset-0 bg-cover bg-center rounded-[30px]"
+        className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${src})`, width: "automatic" }}
       >
         <div className="relative z-10 w-1/2 top-32 left-12 px-4">
@@ -20,7 +20,7 @@ const Hero = ({ heading, description, src }) => {
           </button>
         </div>
       </div>
-      <div className="absolute inset-0 bg-black opacity-60 rounded-[30px]"></div>
+      <div className="absolute inset-0 bg-black opacity-60"></div>
     </div>
   );
 };
